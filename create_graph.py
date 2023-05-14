@@ -24,17 +24,12 @@ for node in original_comm_graph.nodes:
         communities.append(node) 
     except:
         platforms.append(node)
-    
-ranking = []
 
-for node in platforms:
-    total = 0.0
-    for edge in original_comm_graph.edges(node):
-        total = total + float(edge[1])
-    temp = (node, total)
-    util.ranking(ranking, temp)
+#ranking the amount of total retweets for each platform in original_comm dataset and outputing to text file 
+util.rank_total_weight("original_comm_retweet_ranking", original_comm_graph, platforms)
 
-print(ranking)
+#ranking amount of total communities that retweeted the platform's original post
+util.rank_total_spread("original_comm_total_communities_ranking", original_comm_graph, platforms)
 
 #draw graph
 pos = nx.bipartite_layout(original_comm_graph,communities)
