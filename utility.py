@@ -52,3 +52,12 @@ def rank_total_spread(name, G, platforms):
         ranking(rank, temp)
 
     save_list(rank, name, "Rank \t Platform \t Total Communities \n \n")
+
+def seperate(platforms, communities, G):
+    for node in G.nodes:
+        test = node
+        try:
+            float(test)
+            communities.append(node) 
+        except:
+            platforms.append(node)
