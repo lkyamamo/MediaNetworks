@@ -22,9 +22,14 @@ class CreateGraph:
         self.platforms = []
 
         #seperating floating point (communities) nodes from non floating point nodes (platforms)
-        util.seperate(self.communities, self.platforms, self.graph)
-
-        print(self.graph.edges(self.platforms[0]))
+        #seperating floating point (communities) nodes from non floating point nodes (platforms)
+        for node in self.graph.nodes:
+            test = node
+            try:
+                float(test)
+                self.communities.append(node) 
+            except:
+                self.platforms.append(node)
 
         #ranking the amount of total retweets for each platform in original_comm dataset and outputing to text file 
         util.rank_total_weight(file_name + "_retweet_ranking", self.graph, self.platforms)
