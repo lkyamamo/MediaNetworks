@@ -34,6 +34,7 @@ def rank_total_weight(name, G, platforms):
     for node in platforms:
         total = 0.0
         for edge in G.edges(node):
+            print(G.edges(node))
             total = total + float(edge[1])
         temp = (node, total)
         ranking(rank, temp)
