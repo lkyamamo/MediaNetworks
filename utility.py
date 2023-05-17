@@ -45,9 +45,7 @@ def rank_total_weight(name, G, platforms):
 def rank_total_spread(name, G, platforms):
     rank = []
     for node in platforms:
-        total = 0
-        for edge in G.edges(node):
-            total += 1
+        total = len(G.edges(node))
         temp = (node, total)
         ranking(rank, temp)
 
