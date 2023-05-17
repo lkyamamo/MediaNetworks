@@ -39,4 +39,5 @@ class CreateGraph:
 
         #draw graph
         pos = nx.bipartite_layout(self.graph, self.communities)
+        plt.figure(file_name)
         nx.draw(self.graph, pos, with_labels=True, font_weight='bold')
