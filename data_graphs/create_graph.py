@@ -1,7 +1,7 @@
 import os
 import networkx as nx
 import matplotlib.pyplot as plt
-import utility as util
+import data_graphs.utility as util
 
 class CreateGraph:
 

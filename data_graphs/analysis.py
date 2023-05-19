@@ -1,6 +1,9 @@
-import create_graph as cg
+import data_graphs.create_graph as cg
 import networkx as nx
 import matplotlib.pyplot as plt
+import sys
+sys.path.append("Multiplex_optimal_percolation\Targeted_methods_python")
+import launch_targeted 
 
 original = cg.CreateGraph("network_original_comm")
 quoted_tweet = cg.CreateGraph("network_quoted_tweet_comm")
