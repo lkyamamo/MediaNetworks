@@ -6,10 +6,10 @@ class CreateGraph:
 
     #input: file of data to be parsed
     #has memeber variables: graph, communities, platforms
-    def __init__(self, file):
+    def __init__(self, file_path):
 
         #creating unsorted graph
-        self.graph = nx.read_weighted_edgelist(file.path)
+        self.graph = nx.read_weighted_edgelist(file_path)
 
         #creating bipartite arrangement with communities on the left and platforms on the right
         self.communities = []
@@ -24,11 +24,4 @@ class CreateGraph:
             except:
                 self.platforms.append(node)
 
-        #draw graph
-        #pos = nx.bipartite_layout(self.graph, self.communities)
-        #plt.figure(file.name)
-        #nx.draw(self.graph, pos, with_labels=False, font_weight='bold')
-
-        ##mystring = (file.name).split(".")[0]
-        #name = mystring
-        #plt.savefig(name)
+        

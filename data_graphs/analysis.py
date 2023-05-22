@@ -11,7 +11,7 @@ graphs = []
 
 for file in os.scandir(dir_path):
     if file.name[-2:] != "md":
-        graphs.append(cg.CreateGraph(file))
+        graphs.append(cg.CreateGraph(file.path))
 
 #original = cg.CreateGraph("network_original_comm")
 #quoted_tweet = cg.CreateGraph("network_quoted_tweet_comm")
