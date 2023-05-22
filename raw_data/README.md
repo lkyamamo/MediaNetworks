@@ -1,0 +1,1 @@
+The files in this folder will be the raw weighted edge data. Each file in here will make up one layer of the multiplex to be analyzed by the "create_multiplex_layer_file.py"

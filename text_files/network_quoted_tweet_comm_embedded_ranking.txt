@@ -1,4 +1,4 @@
-Rank 	 Platform 	 Retweets 
+Rank 	 Platform 	 # of Embedded Links 
  
 1	Associated_Press_State_&_Local	554.0
 2	Associated_Press_Financial_Wire	554.0

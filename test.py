@@ -1,12 +1,15 @@
+import csv
 import os
+import data_graphs.create_graph as cg
 import networkx as nx
 import matplotlib.pyplot as plt
-import utility as util
-import heaps
+import sys
+import data_graphs.create_graph as cg
 
-#, ('four', 4), ('five', 5), ('six', 6)
-mylist = [('one', 1), ('two', 2), ('three', 3)]
+#This file will take the data that is in the raw_data folder and create the respective networks of the data
+dir_path = os.getcwd() + "\raw_data"
 
-myHeap = heaps.Heap(mylist)
+graphs = []
 
-print(myHeap.heap)
+for file in os.scandir(dir_path):
+    graphs.append(cg.CreateGraph(file.path))

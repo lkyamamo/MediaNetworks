@@ -38,7 +38,7 @@ def rank_total_weight(name, G, platforms):
         temp = (node, total)
         ranking(rank, temp)
 
-    save_list(rank, name, "Rank \t Platform \t Retweets \n \n")
+    save_list(rank, name, "Rank \t Platform \t # of Embedded Links \n \n")
 
 #inputs: name of the output file, graph that was created from the dataset, platforms from the input dataset
 #output: text file that ranks the platforms by total amount of edges going out of it
