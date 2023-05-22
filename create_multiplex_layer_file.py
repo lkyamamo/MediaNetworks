@@ -12,7 +12,8 @@ dir_path = os.getcwd() + "\raw_data"
 graphs = []
 
 for file in os.scandir(dir_path):
-    graphs.append(cg.CreateGraph(file.path))
+    if(file.name[-2:] != "md"):
+        graphs.append(cg.CreateGraph(file))
 
 #from there it will create a mapping of the integer value of the nodes from these graphs to their names in the data
 for G in graphs:
