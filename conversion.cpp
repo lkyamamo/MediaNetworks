@@ -1,36 +1,66 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <map>
+#include <sstream>
 
-using namespace std;
+//command line input will be ./conversion input.txt mapping.txt
 
-void replaceTextInFile(const string& inputFile, const string& outputFile, const string& targetText, const string& replacementText) {
-    ifstream file(inputFile);
-    ofstream newFile(outputFile);
-    string line;
+int main(int argc, char* argv[]) {
+    std::ifstream file_in(argv[1]);
+    std::ifstream mapping(argv[2]);
+    std::ofstream file_out("output.txt");
 
-    while (getline(file, line)) {
-        size_t pos = line.find(targetText);
-        while (pos != string::npos) {
-            line.replace(pos, targetText.length(), replacementText);
-            pos = line.find(targetText, pos + replacementText.length());
-        }
-        newFile << line << "\n";
+    // Check if we successfully opened the files
+    if (!mapping || !file_out) {
+        std::cerr << "Unable to open input file";
+        return 1;   // Return with error code
     }
 
-    file.close();
-    newFile.close();
-}
+    if (!mapping) {
+        std::cerr << "Unable to open mapping file";
+        return 1;   // Return with error code
+    }
 
-int main() {
-    string inputFile = "input.txt";
-    string outputFile = "output.txt";
-    string targetText = "old text";
-    string replacementText = "new text";
+    //create map from mapping file
 
-    replaceTextInFile(inputFile, outputFile, targetText, replacementText);
+    std::string line;
+    std::map<std::string, std::string> node_map;
 
-    cout << "Text replacement complete. Output saved to " << outputFile << endl;
+    // Read each line in and add the key value pair to the map
+    while (std::getline(mapping, line)) {
+        std::stringstream ss(line);
+        std::string key;
+        std::string value;
+
+        ss >> key;
+        ss >> value;
+
+        node_map.insert(std::make_pair(key, value));
+
+
+    }
+
+    //create the new output file that will be the integer mapped version of the raw data
+    std::string old_node1, old_node2;  
+    std::string new_word;  
+
+    // Read lines from the file one by one
+    while (std::getline(file_in, line)) {
+        std::stringstream ss(line);
+
+        //get the nodes from the edge and write the mapped node values to the output file
+        ss >> old_node1;
+        ss >> old_node2;
+        file_out << node_map[old_node1] << ' ' << node_map[old_node2];
+        file_out << "\n";
+
+        //currently not considering weights of the edges
+        ss.str("");
+    }
+
+    file_in.close();
+    file_out.close();
 
     return 0;
 }

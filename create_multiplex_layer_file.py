@@ -6,18 +6,15 @@ import matplotlib.pyplot as plt
 import sys
 import data_graphs.create_graph as cg
 
-#This file will take the data that is in the raw_data folder and create the respective networks of the data
-dir_path = os.getcwd() + "\raw_data"
+
+#This file will take the integer converted data and create the respective layers
+dir_path = os.getcwd() + "/data"
 
 graphs = []
 
 for file in os.scandir(dir_path):
-    if(file.name[-2:] != "md"):
+    if(file.name != "mapping.txt"):
         graphs.append(cg.CreateGraph(file))
-
-#from there it will create a mapping of the integer value of the nodes from these graphs to their names in the data
-for G in graphs:
-    print
 
 
 #it will print the number of total nodes (each layer should have the same number of nodes)

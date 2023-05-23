@@ -1,2 +1,4 @@
-0 Multiplex_optimal_percolation/Duplex_tuning_correlation_and_overlap/layer1.txt
-1 Multiplex_optimal_percolation/Duplex_tuning_correlation_and_overlap/layer2.txt
+0 data/original_integer_unweighted.txt
+1 data/quoted_tweet_integer_unweighted.txt
+2 data/reply_integer_unweighted.txt
+3 data/retweeted_wo_comment_integer_unweighted.txt
