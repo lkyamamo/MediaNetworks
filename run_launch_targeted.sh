@@ -1,0 +1,1 @@
+python3 /home/lkyamamoto/Research/MediaNetworks/Multiplex_optimal_percolation/Targeted_methods_python/launch_targeted.py 278 /home/lkyamamoto/Research/MediaNetworks/launch_targeted_input.txt
